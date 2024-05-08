@@ -1,4 +1,5 @@
 import { Configuration, OpenAIApi } from "openai";
+import { customerSupportAgent } from "../../agents";
 import OpenAI from 'openai';
 
 export default defineEventHandler(async (event) => {
@@ -16,6 +17,8 @@ export default defineEventHandler(async (event) => {
   const completion = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: [{ role: "user", content: "Hello World" }],
+    temperature: body.temperature ||  1,
+    ...customerSupportAgent(body)
   });
 
   // console.log(completion.data.choices[0].message);
