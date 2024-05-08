@@ -1,10 +1,16 @@
 import { Configuration, OpenAIApi } from "openai";
 import OpenAI from 'openai';
-const {OPENAI_API_KEY} = useRuntimeConfig();
+
 export default defineEventHandler(async (event) => {
+
+  const body = await readBody(event);
+
+  const { OPENAI_API_KEY } = useRuntimeConfig();
+
   const configuration = new Configuration({
-    apiKey: OPENAI_API_KEY,
+    apiKey: process.env.OPENAI_API_KEY, // Secure access,
   });
+
   const openai = new OpenAIApi(configuration);
 
   const completion = await openai.createChatCompletion({
@@ -12,6 +18,7 @@ export default defineEventHandler(async (event) => {
     messages: [{ role: "user", content: "Hello World" }],
   });
 
-  console.log(completion.data.choices[0].message);
+  // console.log(completion.data.choices[0].message);
+  return completion.data;
 
 });
