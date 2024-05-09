@@ -79,7 +79,7 @@ watch(
       <!-- Messages -->
       <div class="messages p-4 overflow-y-scroll max-h-[80vh]" ref="messageBox">
         <div v-if="!messages.length" class="text-center w-[350px] m-auto">
-          <strong class="text-lg">Chat with Botman!</strong>
+          <strong class="text-lg">Chat with our ChatBot!</strong>
           <p>Our A.I. powered assistant</p>
           <strong class="block mt-10">Go ahead and ask us something:</strong>
           <ul class="list-inside list-disc text-left">
