@@ -1,10 +1,9 @@
 <template>
   <div class="max-w-full w-[900px] m-auto">
     <!-- 
-      We'll work on the Social Media Post Generator after the chat widget,
-      you can leave it commented out for now
+      Social Media Post Generator was initially commented out. 
     -->
-    <!-- <SocialMediaPostGenerator /> -->
+    <SocialMediaPostGenerator />
     <ChatWidget />
   </div>
 </template>
